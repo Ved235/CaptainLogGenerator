@@ -38,6 +38,13 @@ const generatePirateLog = async (userInput) => {
 
 document.getElementById('generateLogButton').addEventListener('click', async () => {
   const userActivity = document.getElementById('userActivity').value; 
+  const captainsLogElement = document.getElementById('captainsLog');
+  
+  // Show loading text
+  captainsLogElement.innerText = "Generating your pirate log, please wait...";
+
   const pirateLog = await generatePirateLog(userActivity); 
-  document.getElementById('captainsLog').innerText = pirateLog; 
+  
+  // Display the generated pirate log
+  captainsLogElement.innerText = pirateLog; 
 });
