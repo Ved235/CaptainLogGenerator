@@ -14,7 +14,7 @@ Generate adventurous pirate-themed log entries from your daily activities! This 
 - **External API**: Groq API for generating pirate logs  
 
 ## Demo ⚓  
-![Captain's Log Screenshot](https://media.discordapp.net/attachments/750212398710915094/1311660962746470492/image.png?ex=6749aaf7&is=67485977&hm=edb4acedbc8cec1a0f93c971e2af75d4c5d44cda6856c26caba0ecfef038699d&=&format=webp&quality=lossless&width=550&height=273)  
+![Captain's Log Screenshot](https://media.discordapp.net/attachments/750212398710915094/1311660962746470492/image.png?ex=674ef0f7&is=674d9f77&hm=f1278b73e830e4d242e8019fc658304a132846f05dbaa5cf8f9d72dcebd20431&=&format=webp&quality=lossless)  
 
 ### Usage  
 - Enter your daily activity in the text box.  
