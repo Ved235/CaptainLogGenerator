@@ -15,6 +15,28 @@
     <div id="captainsLog" class="log-output"></div>
     
   </div>
-  <script src="./captainLogGenerator.js"></script> 
+  <script>
+    document.getElementById('generateLogButton').addEventListener('click', async () => {
+      const userActivity = document.getElementById('userActivity').value; 
+      const captainsLogElement = document.getElementById('captainsLog');
+      
+      // Show loading text
+      captainsLogElement.innerText = "Generating your pirate log, please wait...";
+
+      const response = await fetch('/generate-log', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userActivity })
+      });
+
+      const data = await response.json();
+      const pirateLog = data.pirateLog;
+      
+      // Display the generated pirate log
+      captainsLogElement.innerText = pirateLog; 
+    });
+  </script>
 </body>
 </html>
