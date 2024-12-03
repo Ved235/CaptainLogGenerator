@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Generate adventurous pirate-themed log entries from your daily activities! This web app converts your text into an exaggerated Captain's Log entry using nautical language, pirate jargon, and lots of \"Arrr!\" for added swashbuckling flair.",
   "main": "captainLogGenerator.js",
-
+  "type": "module",
   "scripts": {
-     "start": "node server.mjs"
+     "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
