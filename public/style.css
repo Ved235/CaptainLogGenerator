@@ -9,9 +9,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .container {
+}
+
+.container {
     width: 90%;
     max-width: 800px;
     padding: 30px;
@@ -19,11 +19,10 @@ body {
     border: 2px solid #8b4513;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  }
-  
-  textarea {
+}
+
+textarea, input[type="text"] {
     width: 100%;
-    min-height: 120px;
     padding: 15px;
     margin: 20px 0;
     background-color: #e6d5a7;
@@ -31,11 +30,15 @@ body {
     border: 2px solid #8b4513;
     border-radius: 8px;
     font-size: 16px;
-    resize: vertical;
     box-sizing: border-box;
-  }
-  
-  button {
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+button {
     padding: 12px 25px;
     font-size: 18px;
     color: #e6d5a7;
@@ -46,14 +49,14 @@ body {
     text-transform: uppercase;
     font-weight: bold;
     transition: all 0.3s ease;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #a0522d;
     transform: scale(1.05);
-  }
-  
-  .log-output {
+}
+
+.log-output {
     margin-top: 25px;
     padding: 20px;
     background-color: #2a4456;
@@ -66,54 +69,99 @@ body {
     overflow-y: auto;
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.6;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
+}
+
+.log-entry {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #2a4456;
+    border: 2px solid #8b4513;
+    border-radius: 8px;
+    color: #e6d5a7;
+}
+
+.log-entry h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+
+.log-entry p {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.log-entry small {
+    display: block;
+    font-size: 14px;
+    color: #a0522d;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #e6d5a7;
+    background-color: #8b4513;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background-color: #a0522d;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .container {
-      width: 95%;
-      padding: 20px;
+        width: 95%;
+        padding: 20px;
     }
     
-    button {
-      width: 100%;
-      margin: 10px 0;
+    button, a {
+        width: 100%;
+        margin: 10px 0;
     }
     
     textarea {
-      min-height: 100px;
+        min-height: 100px;
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     body {
-      padding: 10px;
+        padding: 10px;
     }
     
     .container {
-      padding: 15px;
+        padding: 15px;
     }
     
     .log-output {
-      padding: 15px;
-      max-height: 300px;
+        padding: 15px;
+        max-height: 300px;
     }
-  }
-  
-  /* Scrollbar Styling */
-  ::-webkit-scrollbar {  
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {  
     width: 10px;
-  }
-  
-  ::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-track {
     background: #2a4456;
-  }
-  
-  ::-webkit-scrollbar-thumb {
+}
+
+::-webkit-scrollbar-thumb {
     background: #8b4513;
     border-radius: 5px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+::-webkit-scrollbar-thumb:hover {
     background: #a0522d;
-  }
+}

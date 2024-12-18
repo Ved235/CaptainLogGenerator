@@ -11,13 +11,15 @@
     <h1>Captain's Log Generator</h1>
   
     <textarea id="userActivity" placeholder="Enter your daily activity here..."></textarea>
+    <input type="text" id="logName" placeholder="Enter log name...">
     <button id="generateLogButton">Generate Captain's Log</button>
     <div id="captainsLog" class="log-output"></div>
-    
+    <a href="/logbook.html">View Captain's Logbook</a>
   </div>
   <script>
     document.getElementById('generateLogButton').addEventListener('click', async () => {
       const userActivity = document.getElementById('userActivity').value; 
+      const logName = document.getElementById('logName').value;
       const captainsLogElement = document.getElementById('captainsLog');
       
       // Show loading text
@@ -28,7 +30,7 @@
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ userActivity })
+        body: JSON.stringify({ userActivity, logName })
       });
 
       const data = await response.json();
