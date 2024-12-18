@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Captain's Logbook</title>
+  <link rel="stylesheet" href="./logbook.css">
+</head>
+<body>
+  <div id="wrapper">
+    <div id="container">
+      <section class="open-book">
+        <header>
+          <h1>Captain's Logbook</h1>
+        </header>
+        <article id="logbook" class="log-output"></article>
+        <footer>
+          <div class="pagination">
+            <button id="prevButton" onclick="prevPage()">Previous</button>
+            <button id="nextButton" onclick="nextPage()">Next</button>
+          </div>
+          <a href="/">Back to Log Generator</a>
+        </footer>
+      </section>
+    </div>
+  </div>
+  <script>
+    let currentPage = 1;
+    const logsPerPage = 2;
+
+    function fetchLogs() {
+      const logs = JSON.parse(localStorage.getItem('logs')) || [];
+      displayLogs(logs, currentPage);
+    }
+
+    function displayLogs(logs, page) {
+      const logbookElement = document.getElementById('logbook');
+      logbookElement.innerHTML = '';
+      const start = (page - 1) * logsPerPage;
+      const end = start + logsPerPage;
+      const paginatedLogs = logs.slice(start, end);
+
+      paginatedLogs.forEach(log => {
+        const logEntry = document.createElement('div');
+        logEntry.classList.add('log-entry');
+        logEntry.innerHTML = `
+          <h2 class="chapter-title">${log.name}</h2>
+          <p>${log.log}</p>
+          <small>${new Date(log.timestamp).toLocaleString()}</small>
+        `;
+        logbookElement.appendChild(logEntry);
+
+        // Ensure each log has at least 100 words
+        const wordCount = log.log.split(/\s+/).length;
+        if (wordCount < 100) {
+          const additionalLines = 100 - wordCount;
+          for (let i = 0; i < additionalLines; i++) {
+            const blankLine = document.createElement('p');
+            blankLine.innerHTML = '&nbsp;';
+            logEntry.appendChild(blankLine);
+          }
+        }
+      });
+
+      document.getElementById('prevButton').disabled = page === 1;
+      document.getElementById('nextButton').disabled = end >= logs.length;
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        fetchLogs();
+      }
+    }
+
+    function nextPage() {
+      currentPage++;
+      fetchLogs();
+    }
+
+    fetchLogs();
+  </script>
+</body>
+</html>

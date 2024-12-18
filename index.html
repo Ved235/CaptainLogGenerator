@@ -14,7 +14,7 @@
     <input type="text" id="logName" placeholder="Enter log name...">
     <button id="generateLogButton">Generate Captain's Log</button>
     <div id="captainsLog" class="log-output"></div>
-    <a href="/logbook.html">View Captain's Logbook</a>
+    <a href="./logbook.html">View Captain's Logbook</a>
   </div>
   <script>
     document.getElementById('generateLogButton').addEventListener('click', async () => {
@@ -37,7 +37,12 @@
       const pirateLog = data.pirateLog;
       
       // Display the generated pirate log
-      captainsLogElement.innerText = pirateLog; 
+      captainsLogElement.innerText = pirateLog;
+
+      // Store the log in localStorage
+      const logs = JSON.parse(localStorage.getItem('logs')) || [];
+      logs.push({ name: logName, log: pirateLog, timestamp: new Date().toISOString() });
+      localStorage.setItem('logs', JSON.stringify(logs));
     });
   </script>
 </body>
