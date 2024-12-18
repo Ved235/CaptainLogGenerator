@@ -50,9 +50,8 @@
         `;
         logbookElement.appendChild(logEntry);
 
-        // Ensure each log has at least 100 words
         const wordCount = log.log.split(/\s+/).length;
-        if (wordCount < 100) {
+        if (wordCount < 100 && wordCount > 30) {
           const additionalLines = 100 - wordCount;
           for (let i = 0; i < additionalLines; i++) {
             const blankLine = document.createElement('p');
