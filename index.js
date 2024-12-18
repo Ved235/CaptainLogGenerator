@@ -32,7 +32,7 @@ const generatePirateLog = async (userInput) => {
       messages: [
         {
           role: "system",
-          content: `The users will send messages regarding their daily activity or journaling for that day. Convert the text into a pirate captain’s log entry. Use nautical language, pirate jargon, and make it sound adventurous and exaggerated. Be sure to use pirate expressions like 'Arrr!', 'Ahoy, matey!', and 'Avast!'.Ensure that you dont add any markdown formatting.`,
+          content: `The users will send messages regarding their daily activity or journaling for that day. Convert the text into a pirate captain’s log entry. Use nautical language, pirate jargon, and make it sound adventurous and exaggerated. Be sure to use pirate expressions like 'Arrr!', 'Ahoy, matey!', and 'Avast!'.Ensure that you dont add any markdown formatting, dont add words like "insert date".`,
         },  
         {
           role: "user",
